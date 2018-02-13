@@ -1075,6 +1075,13 @@ import {FormArray} from '@angular/forms/src/model';
         expect(validator.calls.count()).toEqual(2);
       });
 
+      it('should disable the control even when no value is provided', () => {
+        const c = new FormControl({ disabled: true });
+        
+        expect(c.disabled).toBe(true);
+        expect(c.status).toBe('DISABLED');
+      });
+
       describe('disabled errors', () => {
         it('should clear out the errors when disabled', () => {
           const c = new FormControl('', Validators.required);
